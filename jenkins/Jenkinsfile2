@@ -6,9 +6,6 @@ pipeline {
     }  
     agent any 
     stages {
-        stage('init'){
-        //init sample
-        }
         stage('Building image') {
             steps{
                 script {
@@ -17,7 +14,7 @@ pipeline {
             }
         }
         stage('Deploy Image') {
-            steps{
+            steps {
                 script {
                     docker.withRegistry( '', registryCredential ) {
                     dockerImage.push("$BUILD_NUMBER")
