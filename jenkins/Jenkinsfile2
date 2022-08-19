@@ -6,6 +6,9 @@ pipeline {
     }  
     agent any 
     stages {
+        stage('init'){
+        //init sample
+        }
         stage('Building image') {
             steps{
                 script {
