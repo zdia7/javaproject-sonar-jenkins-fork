@@ -12,12 +12,9 @@ pipeline {
                     dockerImage = docker.build imagename
                 }
             }
-            steps {
-                withMaven(maven: 'mvn') {
+            withMaven(maven: 'mvn') {
                 sh "mvn clean package"
-                }
             }
-        }
         stage('Deploy Image') {
             steps {
                 script {
