@@ -1,5 +1,5 @@
 pipeline {
-    aenvironment {
+    environment {
     imagename = "kubernetesdevops/kubernetesdevops/sonarqube-jenkins"
     registryCredential = 'credential docker'
     dockerImage = ''
