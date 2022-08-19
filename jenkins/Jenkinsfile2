@@ -12,9 +12,7 @@ pipeline {
                     dockerImage = docker.build imagename
                 }
             }
-            withMaven(maven: 'mvn') {
-                sh "mvn clean package"
-            }
+        }
         stage('Deploy Image') {
             steps {
                 script {
@@ -30,23 +28,20 @@ pipeline {
                 //sh "mvn clean package"
             //}
         //}
-        stage('Test') {
-            steps {
-                sh 'mvn test'
-            }
-            post {
-                always {
-                    junit 'target/surefire-reports/*.xml'
-                }
-            }
-        }
-        stage('Deliver') {
-            steps {
-                sh './jenkins/scripts/deliver.sh'
-            }
-        }
+        //stage('Test') {
+            //steps {
+                //sh 'mvn test'
+            //}
+            //post {
+                //always {
+                    //junit 'target/surefire-reports/*.xml'
+                //}
+            //}
+        //}
+        //stage('Deliver') {
+            //steps {
+                //sh './jenkins/scripts/deliver.sh'
+            //}
+        //}
     }
 }
-}
-
-
